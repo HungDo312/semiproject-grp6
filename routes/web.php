@@ -86,3 +86,8 @@ Route::post('/coupon-store', 'CouponController@couponStore')->name('coupon-store
 Route::get('payment', 'PayPalController@payment')->name('payment');
 Route::get('cancel', 'PayPalController@cancel')->name('payment.cancel');
 Route::get('payment/success', 'PayPalController@success')->name('payment.success');
+//Đơn Hàng
+Route::get('/orders.html', 'FrontendController@orders')->name('orders')->middleware('user');
+Route::post('orders.html', 'FrontendController@searchOrder')->name('search.orders');
+//Contact
+Route::post('contact', 'FrontendController@contactSubmit')->name('contact.submit')->middleware('user');
