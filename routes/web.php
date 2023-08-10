@@ -48,3 +48,8 @@ Route::get('/cart',function(){
     return view('frontend.pages.cart');
 })->name('cart');
 Route::get('/checkout','CartController@checkout')->name('checkout')->middleware('user');
+Route::get('/wishlist',function(){
+    return view('frontend.pages.wishlist');
+})->name('wishlist');
+Route::get('/wishlist/{slug}','WishlistController@wishlist')->name('add-to-wishlist')->middleware('user');
+Route::get('wishlist-delete/{id}','WishlistController@wishlistDelete')->name('wishlist-delete');
