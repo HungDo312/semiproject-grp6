@@ -43,3 +43,8 @@ Route::get('/add-to-cart/{slug}', 'CartController@addToCart')->name('add-to-cart
 Route::post('/add-to-cart', 'CartController@singleAddToCart')->name('single-add-to-cart')->middleware('user');
 Route::get('cart-delete/{id}', 'CartController@cartDelete')->name('cart-delete');
 Route::post('cart-update', 'CartController@cartUpdate')->name('cart.update');
+
+Route::get('/cart',function(){
+    return view('frontend.pages.cart');
+})->name('cart');
+Route::get('/checkout','CartController@checkout')->name('checkout')->middleware('user');
